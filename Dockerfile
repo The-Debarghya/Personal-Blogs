@@ -17,10 +17,10 @@ FROM eclipse-temurin:17-jre-alpine AS runner
 
 ARG PORT=8080
 ARG JAR_FILE="app.jar"
+WORKDIR /opt/app
 RUN adduser -D user --shell /usr/sbin/nologin \
     && chown -R user:user /opt/app
 
-WORKDIR /opt/app
 
 EXPOSE ${PORT}
 ENV PORT=${PORT}
