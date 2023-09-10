@@ -7,7 +7,6 @@ COPY gradle/ /opt/app/gradle/
 COPY gradlew build.gradle ./
 COPY settings.gradle ./
 
-RUN /opt/app/gradlew dependencies
 RUN /opt/app/gradlew --refresh-dependencies
 
 COPY ./src ./src
