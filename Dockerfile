@@ -1,13 +1,14 @@
 FROM eclipse-temurin:17-jdk-jammy AS builder
 
-ARG BUILD_COMMAND="./gradlew build"
+ARG BUILD_COMMAND="./gradlew clean build"
 
 WORKDIR /opt/app
-COPY gradle/ gradle
-COPY gradlew build.gradle 
+COPY gradle/ /opt/app/gradle/
+COPY gradlew build.gradle ./
 COPY settings.gradle ./
 
 RUN /opt/app/gradlew dependencies
+RUN /opt/app/gradlew --refresh-dependencies
 
 COPY ./src ./src
 
