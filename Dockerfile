@@ -18,7 +18,7 @@ RUN ${BUILD_COMMAND}
 FROM eclipse-temurin:17-jre-alpine AS runner
 
 ARG PORT=8080
-ARG JAR_FILE="app.jar"
+ENV JAR_FILE="app.jar"
 WORKDIR /opt/app
 RUN adduser -D user --shell /usr/sbin/nologin \
     && chown -R user:user /opt/app
@@ -27,6 +27,6 @@ RUN adduser -D user --shell /usr/sbin/nologin \
 EXPOSE ${PORT}
 ENV PORT=${PORT}
 
-COPY --from=builder /opt/app/target/*.jar /opt/app/${JAR_FILE}
+COPY --from=builder /opt/app/build/libs/*.jar /opt/app/${JAR_FILE}
 USER user
 CMD java -jar /opt/app/${JAR_FILE}
