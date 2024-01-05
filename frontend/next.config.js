@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ['cdn.hashnode.com'],
   },
+  output: 'standalone'
 }
 
 module.exports = nextConfig
