@@ -28,5 +28,6 @@ EXPOSE ${PORT}
 ENV PORT=${PORT}
 
 COPY --from=builder /opt/app/build/libs/*.jar /opt/app/${JAR_FILE}
+COPY uploads /opt/app/
 USER user
 CMD java -jar /opt/app/${JAR_FILE}

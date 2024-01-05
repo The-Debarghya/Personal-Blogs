@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  blog-backend:
+    build: .
+    ports:
+      - "8080:8080"
+    expose:
+      - 8080
+    volumes:
+      - uploads:/opt/app/uploads
+  blog-frontend:
+    build: ./frontend
+    ports:
+      - "80:3000"
+  db:
+    image: postgres:15.0
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: flyhigh
+    expose:
+      - 5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
+  uploads:
