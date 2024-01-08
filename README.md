@@ -18,11 +18,11 @@
 ### Blog management and blog adding pages:
 
 ![alt](assets/3.png)
-![alt](assets/5.png)
+![alt](assets/4.png)
 
 ### User management page:
 
-![alt](assets/4.png)
+![alt](assets/5.png)
 
 ## Usage:
 
